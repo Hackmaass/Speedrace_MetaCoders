@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-house="none">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="An interactive magical guide for newcomers to Hogwarts: map, elf guide, subjects, lore and quests.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%B0%3C/text%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Marauder's Guide to Hogwarts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Almendra+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<audio id="bgm" src="assets/hedwigs-theme.mp3" loop preload="auto"></audio>
+<button id="snd" class="snd" aria-label="Toggle music" title="Music on/off">🔊</button>
+
+<!-- Owl letter + sorting ceremony -->
+<div id="gate" role="dialog" aria-modal="true" aria-label="Welcome to Hogwarts"><div class="letter parch" id="gbox"></div></div>
+
+<div class="wrap">
+  <header class="top"><span class="brand">🏰 The Marauder's Guide</span><div class="hud" id="hud"></div></header>
+  <nav role="tablist" id="nav"></nav>
+
+  <section class="view" id="v-home"></section>
+  <section class="view" id="v-map"></section>
+  <section class="view" id="v-ask"></section>
+  <section class="view" id="v-subjects"></section>
+  <section class="view" id="v-life"></section>
+  <section class="view" id="v-lore"></section>
+  <section class="view" id="v-quests"></section>
+</div>
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>addEventListener("error",function(e){var g=document.getElementById("gbox");if(g&&!g.firstChild)g.textContent="Something went wrong loading the guide: "+(e.message||"script failed")+" ("+String(e.filename||"").split("/").pop()+":"+e.lineno+")"},true)</script>
+<script src="lore.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
